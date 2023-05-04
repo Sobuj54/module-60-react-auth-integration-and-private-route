@@ -19,6 +19,8 @@ const Register = () => {
       .then((result) => {
         const loggedUser = result.user;
         console.log(loggedUser);
+        // clearing the form field after registering
+        form.reset();
       })
       .catch((error) => {
         console.log(error);
