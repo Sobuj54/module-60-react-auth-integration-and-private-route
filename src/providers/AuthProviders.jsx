@@ -5,6 +5,7 @@ import {
   getAuth,
   onAuthStateChanged,
   signInWithEmailAndPassword,
+  signOut,
 } from "firebase/auth";
 
 export const AuthContext = createContext(null);
@@ -25,6 +26,10 @@ const AuthProviders = ({ children }) => {
     };
   }, []);
 
+  const logOut = () => {
+    return signOut(auth);
+  };
+
   //   this function is used in register
   const createUser = (email, password) => {
     return createUserWithEmailAndPassword(auth, email, password);
@@ -39,6 +44,7 @@ const AuthProviders = ({ children }) => {
     user,
     createUser,
     signIn,
+    logOut,
   };
 
   return (
